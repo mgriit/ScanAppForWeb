@@ -117,4 +117,4 @@ Process of installation is so straight-forward just have to follow the steps bel
         };
 ```
   - Thats It. Done!
-  - Clicl on Scan and it will pop up a window select scanner name at the top left side and click on start scan.
+  - Click on Scan and it will pop up a window select scanner name at the top left side and click on start scan.
