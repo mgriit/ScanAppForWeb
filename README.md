@@ -1,5 +1,9 @@
 # ScanAppForWeb
-This application can scan any document via scanner from web browser. Simply it's a web application twain integration. 
+This application can scan any document via scanner from web browser. Simply it's a web application twain integration. It provides solutions for
+  -Twain Scanner for any ASP.NET application (MVC/Web Form)
+  -Web Twain Scanner for PHP Application.
+  -Any other web Application
+  -DemoProject is full implementation in ASP.NET MVC 5.
 # Installation
 Process of installation is so straight-forward just have to follow the steps bellow:
   - Download DemoProject Copy SrcFile folder to your project's root (or you can manually install the setup file(Scan_App_SetUp.msi) to your computer. Open the apllication for the first time only from desktop sortcut).
