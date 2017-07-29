@@ -1,0 +1,13 @@
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NewScan.exe.config
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NewScan.exe
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NewScan.pdb
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\Fleck.dll
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NTwain.dll
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NTwain.pdb
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\bin\Release\NTwain.xml
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.Form1.resources
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.Properties.Resources.resources
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.SplashScreen.resources
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.csproj.GenerateResource.Cache
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.exe
+C:\Users\MGR\Documents\Visual Studio 2015\Projects\NewScan\NewScan\obj\Release\NewScan.pdb

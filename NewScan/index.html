@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>websocket client</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
+
+    <script type="text/javascript">
+        var selDiv = "";
+        var storedFiles = [];
+
+        $(document).ready(function () {
+            selDiv = $("#selectedFiles");
+            $("body").on("click", ".selFile", editFiles);
+        });
+
+        var start = function () {
+            var i = 0;
+
+            var wsImpl = window.WebSocket || window.MozWebSocket;
+
+            window.ws = new wsImpl('ws://localhost:8181/');
+            ws.onmessage = function (e) {
+                if (typeof e.data === "string") {
+                    //IF Received Data is String
+                }
+                else if (e.data instanceof ArrayBuffer) {
+                   //IF Received Data is ArrayBuffer
+                }
+                else if (e.data instanceof Blob) {
+
+                    i++;
+
+                    var f = e.data;
+
+                    f.name = "File" + i;
+
+                    storedFiles.push(f);
+
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var html = "<div class=\"col-sm-2 text-center\" style=\"border: 1px solid black; margin-left: 2px;\"><img height=\"200px\" width=\"200px\" src=\"" + e.target.result + "\" data-file='" + f.name + "' class='selFile' title='Click to remove'><br/>" + i + "</div>";
+                        selDiv.append(html);
+
+                    }
+                    reader.readAsDataURL(f);
+                }
+            };
+            ws.onopen = function () {
+                //Do whatever u want when connected succesfully
+            };
+            ws.onclose = function () {
+                //Do whatever u want when Connection dismissed
+            };
+        }
+        window.onload = start;
+
+        function scanImage() {
+            ws.send("1100");
+        };
+
+        function editFiles(e) {
+            var file = $(this).data("file");
+            for (var i = 0; i < storedFiles.length; i++) {
+                if (storedFiles[i].name === file) {
+                    $('.mm').modal('show');
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = window.URL.createObjectURL(storedFiles[i]);
+                    img.onload = function () {
+                        c.width = img.width ;
+                        c.height = img.height;
+                        ctx.drawImage(img, 0, 0, img.width, img.height);
+                    }
+                    break;
+
+                }
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <button type="button" onclick="scanImage();" class="btn btn-primary btn-lg">Scan</button>
+    <br/>
+
+
+    <a href="/SrcFile/ScanApps.zip" download>DDDD</a>
+       <div id="selectedFiles" class="row" style="padding: 3px"></div>
+
+    <div class="modal fade mm" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div style="max-height:1200px;overflow:scroll;">
+                    <canvas id="myCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
