@@ -118,3 +118,6 @@ Process of installation is so straight-forward just have to follow the steps bel
 ```
   - Thats It. Done!
   - Click on Scan and it will pop up a window select scanner name at the top left side and click on start scan.
+
+# How It Works 
+I have made a desktop apllication(Windows Form) that will work in background. Desktop application will remain connected with browser while it is open. When browser command to scan the desktop apllication scan document and send it to browser.
